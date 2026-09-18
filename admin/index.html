@@ -4,9 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
-  <!-- This loads the dashboard -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
+  <script>
+    // Simple debug check
+    setTimeout(() => {
+      if (!document.querySelector('.nc-app')) {
+        console.error("Decap CMS did not load. Check config.yml");
+        document.body.innerHTML = "<h1 style='color:red; padding:20px;'>CMS Failed to Load. Check Console (F12) for errors.</h1>";
+      }
+    }, 3000);
+  </script>
 </body>
 </html>
