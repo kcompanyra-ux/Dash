@@ -4,14 +4,21 @@ backend:
   branch: main
   base_url: https://auth.decapcms.org
 
+# ⚠️ THIS WAS MISSING AND CAUSING THE ERROR
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
 collections:
-  - name: "site_settings"
-    label: "Site Settings"
+  - name: settings
+    label: Site Settings
     files:
-      - label: "General Settings"
-        name: "general"
-        file: "content.json"
+      - name: general
+        label: General
+        file: content.json
         fields:
-          - { label: "Browser Tab Title", name: "page_title", widget: "string" }
-          - { label: "SEO Description", name: "page_description", widget: "text" }
-          - { label: "Main Heading on Page", name: "main_heading", widget: "string" }
+          - name: page_title
+            label: Page Title
+            widget: string
+          - name: main_heading
+            label: Main Heading
+            widget: string
