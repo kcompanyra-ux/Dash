@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: kcompanyra-ux/Dash # ⚠️ CHANGE THIS to your exact repo (e.g., john-doe/my-website)
+  branch: main
+  base_url: https://auth.decapcms.org # This handles the GitHub login for free
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site_content"
+    label: "Website Content"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "content.json" # ⚠️ This tells the CMS to edit the JSON file we made
+        fields:
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Description", name: "hero_description", widget: "text" }
