@@ -1,20 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <script>
-    // Simple debug check
-    setTimeout(() => {
-      if (!document.querySelector('.nc-app')) {
-        console.error("Decap CMS did not load. Check config.yml");
-        document.body.innerHTML = "<h1 style='color:red; padding:20px;'>CMS Failed to Load. Check Console (F12) for errors.</h1>";
-      }
-    }, 3000);
-  </script>
+  <!-- Include the script from the official stable CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.0.12/dist/decap-cms.js"></script>
 </body>
 </html>
