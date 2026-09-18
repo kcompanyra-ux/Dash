@@ -1,4 +1,5 @@
 {
-  "hero_title": "Welcome to My GitHub Pages Site",
-  "hero_description": "You can now edit this text from the dashboard!"
-}
+      "page_title": "Calculator",
+      "page_description": "A simple online calculator",
+      "main_heading": "My Calculator"
+    }
