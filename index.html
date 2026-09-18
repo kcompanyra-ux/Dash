@@ -3,18 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculator</title>
-  <meta name="description" content="A simple online calculator" />
+  <title id="dynamic-title">Calculator</title>
+  <meta name="description" id="dynamic-desc" content="A simple online calculator" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       min-height: 100vh;
       display: flex;
+      flex-direction: column; /* Changed to column to fit heading */
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       padding: 20px;
+    }
+    /* New heading style */
+    #main-heading {
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      text-align: center;
     }
     .calculator {
       background: #1e1e2e;
@@ -72,6 +82,10 @@
   </style>
 </head>
 <body>
+
+  <!-- Editable Heading -->
+  <h1 id="main-heading">Loading...</h1>
+
   <div class="calculator">
     <div class="history" id="history"></div>
     <div class="display" id="display">0</div>
@@ -102,6 +116,7 @@
     </div>
   </div>
 
+  <!-- Calculator Logic (Unchanged) -->
   <script>
     const display = document.getElementById('display');
     const history = document.getElementById('history');
@@ -113,38 +128,30 @@
     function updateDisplay() {
       display.textContent = current;
     }
-
     function inputNumber(n) {
       if (justEvaluated) { current = '0'; justEvaluated = false; }
       current = current === '0' ? n : current + n;
       updateDisplay();
     }
-
     function inputDot() {
       if (justEvaluated) { current = '0'; justEvaluated = false; }
       if (!current.includes('.')) current += '.';
       updateDisplay();
     }
-
     function clearAll() {
-      current = '0';
-      previous = null;
-      operator = null;
+      current = '0'; previous = null; operator = null;
       history.textContent = '';
       updateDisplay();
     }
-
     function toggleSign() {
       if (current === '0') return;
       current = current.startsWith('-') ? current.slice(1) : '-' + current;
       updateDisplay();
     }
-
     function percent() {
       current = String(parseFloat(current) / 100);
       updateDisplay();
     }
-
     function compute(a, b, op) {
       switch (op) {
         case '+': return a + b;
@@ -153,7 +160,6 @@
         case '/': return b === 0 ? 'Error' : a / b;
       }
     }
-
     function setOperator(op) {
       if (operator && !justEvaluated && previous !== null) {
         const result = compute(parseFloat(previous), parseFloat(current), operator);
@@ -167,7 +173,6 @@
       const sym = { '+': '+', '-': '−', '*': '×', '/': '÷' }[op];
       history.textContent = `${previous} ${sym}`;
     }
-
     function equals() {
       if (operator === null || previous === null) return;
       const result = compute(parseFloat(previous), parseFloat(current), operator);
@@ -179,7 +184,6 @@
       justEvaluated = true;
       updateDisplay();
     }
-
     document.querySelectorAll('button').forEach(btn => {
       btn.addEventListener('click', () => {
         if (current === 'Error') clearAll();
@@ -192,8 +196,6 @@
         else if (btn.dataset.action === 'equals') equals();
       });
     });
-
-    // Keyboard support
     document.addEventListener('keydown', (e) => {
       if (current === 'Error') clearAll();
       if (/^[0-9]$/.test(e.key)) inputNumber(e.key);
@@ -206,6 +208,21 @@
         updateDisplay();
       }
     });
+  </script>
+
+  <!-- CMS Content Loader Script -->
+  <script>
+    fetch('./content.json')
+      .then(response => response.json())
+      .then(data => {
+        // Update Page Title
+        document.title = data.page_title;
+        // Update Meta Description
+        document.getElementById('dynamic-desc').setAttribute('content', data.page_description);
+        // Update Visible Heading
+        document.getElementById('main-heading').textContent = data.main_heading;
+      })
+      .catch(err => console.error('Failed to load CMS content:', err));
   </script>
 </body>
 </html>
