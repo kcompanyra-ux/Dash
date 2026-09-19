@@ -9,16 +9,18 @@
   <!-- Load Decap CMS -->
   <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.0.12/dist/decap-cms.js"></script>
   
-  <!-- Manual Configuration -->
   <script>
     window.CMS_MANUAL_INIT = true;
     
     const config = {
       backend: {
         name: 'github',
-        repo: 'kcompanyra-ux/Dash', // <--- CHANGE THIS TO YOUR REPO
+        repo: 'kcompanyra-ux/Dash', // <--- CHANGE THIS
         branch: 'main',
+        // This forces it to use GitHub OAuth directly, not Netlify
+        auth_type: 'implicit', 
       },
+      site_url: 'https://kcompanyra-ux.github.io/Dash/', // <--- CHANGE THIS to your live URL
       media_folder: 'images/uploads',
       public_folder: '/images/uploads',
       collections: [
@@ -40,7 +42,6 @@
       ]
     };
 
-    // Initialize the CMS
     CMS.init({ config });
   </script>
 </body>
