@@ -9,25 +9,26 @@
   <!-- Load Decap CMS -->
   <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.0.12/dist/decap-cms.js"></script>
   
-  <!-- Configure the GitHub App ID -->
+  <!-- Manual Configuration -->
   <script>
     window.CMS_MANUAL_INIT = true;
+    
     const config = {
       backend: {
         name: 'github',
-        repo: 'kcompanyra-ux/Dash', // <--- CHANGE THIS
+        repo: 'kcompanyra-ux/Dash', // <--- CHANGE THIS TO YOUR REPO
         branch: 'main',
       },
       media_folder: 'images/uploads',
       public_folder: '/images/uploads',
       collections: [
         {
-          name: 'settings',
-          label: 'Site Settings',
+          name: 'site_config',
+          label: 'Site Configuration',
           files: [
             {
-              name: 'general',
-              label: 'General',
+              name: 'general_settings',
+              label: 'General Settings',
               file: 'content.json',
               fields: [
                 { name: 'page_title', label: 'Page Title', widget: 'string' },
@@ -38,8 +39,8 @@
         }
       ]
     };
-    
-    // Initialize CMS with the config above
+
+    // Initialize the CMS
     CMS.init({ config });
   </script>
 </body>
