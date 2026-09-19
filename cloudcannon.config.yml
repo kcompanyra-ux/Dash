@@ -1,14 +1,39 @@
 paths:
-  static: ''
   uploads: uploads
+  uploads_use_relative_path: false
+  static: ''
+collections_config:
+  source:
+    path: ''
+    icon: package_2
+    disable_url: true
+    include_developer_files: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+_snippets_imports:
+  jekyll: true
+editor:
+  default_path: https://kcompanyra-ux.github.io/Dash/
 timezone: Asia/Riyadh
 markdown:
   engine: kramdown
   options:
-    heading_ids: false
-    gfm: false
+    xhtml: false
     breaks: false
+    linkify: false
     typographer: false
+    spaced_lists: false
+    sentence_per_line: false
+    gfm: false
+    code_block_fences: '```'
+    escape_snippets_in_code_blocks: false
+    treat_indentation_as_code: true
+    table: false
+    strikethrough: false
+    subscript: false
+    superscript: false
+    heading_ids: false
     attributes: true
     attribute_elements:
       inline: right
@@ -16,11 +41,3 @@ markdown:
       tr: none
       td: none
       li: right-of-prefix
-    treat_indentation_as_code: true
-_snippets_imports:
-  jekyll: true
-collections_config:
-  source:
-    path: ''
-    icon: package_2
-    disable_url: true
