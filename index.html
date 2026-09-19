@@ -1,0 +1,19 @@
+---
+layout: default
+title: Home
+---
+
+<div class="hero">
+  <!-- Editable Region: Title -->
+  <h1 data-editable="hero_title">{{ page.hero_title }}</h1>
+  
+  <!-- Editable Region: Description -->
+  <p data-editable="hero_description">{{ page.hero_description }}</p>
+  
+  <!-- Editable Region: Button Link & Text -->
+  <a href="{{ page.cta_link }}" class="btn" data-editable="cta_text">{{ page.cta_text }}</a>
+</div>
+
+<section class="content">
+  {{ content }}
+</section>
