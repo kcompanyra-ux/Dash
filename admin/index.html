@@ -6,7 +6,6 @@
   <title>Content Manager</title>
 </head>
 <body>
-  <!-- Load Decap CMS -->
   <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.0.12/dist/decap-cms.js"></script>
   
   <script>
@@ -15,12 +14,10 @@
     const config = {
       backend: {
         name: 'github',
-        repo: 'kcompanyra-ux/Dash', // <--- CHANGE THIS
+        repo: 'kcompanyra-ux/Dash', // <--- CHANGE 1: Your GitHub Repo
         branch: 'main',
-        // This forces it to use GitHub OAuth directly, not Netlify
-        auth_type: 'implicit', 
       },
-      site_url: 'https://kcompanyra-ux.github.io/Dash/', // <--- CHANGE THIS to your live URL
+      site_url: 'https://kcompanyra-ux.github.io/Dash/', // <--- CHANGE 2: Your Live Site URL
       media_folder: 'images/uploads',
       public_folder: '/images/uploads',
       collections: [
