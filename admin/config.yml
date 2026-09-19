@@ -3,8 +3,8 @@ backend:
   repo: kcompanyra-ux/Dash
   branch: main
   base_url: https://auth.decapcms.org
+  auth_scope: repo
 
-# ⚠️ THIS WAS MISSING AND CAUSING THE ERROR
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
