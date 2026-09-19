@@ -4,42 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Content Manager</title>
+  <!-- This meta tag helps GitHub Pages handle the redirect correctly -->
+  <meta http-equiv="refresh" content="0; url=./" />
 </head>
 <body>
   <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.0.12/dist/decap-cms.js"></script>
-  
-  <script>
-    window.CMS_MANUAL_INIT = true;
-    
-    const config = {
-      backend: {
-        name: 'github',
-        repo: 'kcompanyra-ux/Dash', // <--- CHANGE 1: Your GitHub Repo
-        branch: 'main',
-      },
-      site_url: 'https://kcompanyra-ux.github.io/Dash/', // <--- CHANGE 2: Your Live Site URL
-      media_folder: 'images/uploads',
-      public_folder: '/images/uploads',
-      collections: [
-        {
-          name: 'site_config',
-          label: 'Site Configuration',
-          files: [
-            {
-              name: 'general_settings',
-              label: 'General Settings',
-              file: 'content.json',
-              fields: [
-                { name: 'page_title', label: 'Page Title', widget: 'string' },
-                { name: 'main_heading', label: 'Main Heading', widget: 'string' }
-              ]
-            }
-          ]
-        }
-      ]
-    };
-
-    CMS.init({ config });
-  </script>
 </body>
 </html>
