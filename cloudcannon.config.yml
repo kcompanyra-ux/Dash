@@ -4,8 +4,10 @@ paths:
   static: ''
 collections_config:
   pages:
-    path: ''
+    path: Main
+    name: Web
     icon: wysiwyg
+    url: https://kcompanyra-ux.github.io/Dash/
     disable_url: false
     include_developer_files: false
     preview:
